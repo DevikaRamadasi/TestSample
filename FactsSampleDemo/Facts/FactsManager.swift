@@ -8,6 +8,8 @@
 
 import Foundation
 class FactsManager {
+    /// Fetchs the Facts from API and returs FactsInfo or Error based on response
+    /// - Parameter onCompletion: Completion clousre which will be executed once we receive the responce , if succesful then result will have data other wise error will be avilable 
     class func getFacts(_ onCompletion:@escaping (FactsInfo?,Error?)->Void)  {
         Service.shared.getDetailsFor(endpoint: .facts) { (result:Any?,error: Error?) in
             guard result != nil else

@@ -8,18 +8,26 @@
 
 import Foundation
 let baseURL  =   "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl"
+/// Used to define  diffrent end points
 enum EndPoint:String
 {
     case facts = "/facts.json"
 }
 extension EndPoint
 {
+    /// Returns url path for mentioned EndPoint
+    /// - Parameter endPoint: EndPoint object , to which API should point
     static func getPathForEndPoint(endPoint:EndPoint) -> String {
         return baseURL+endPoint.rawValue
     }
 }
 class Service:NSObject,URLSessionDelegate,URLSessionDataDelegate {
     static let shared = Service()
+    
+    /// Downloads details from provided API endpoint and
+    /// - Parameter endpoint:EndPoint object , to which API should point
+    /// - Parameter completion: completion block(Closure) that need to be execeuted after download completes.
+    ///
     
     func getDetailsFor(endpoint:EndPoint , onCompletion completion:  @escaping (_ JSON:Any?, _ error:Error?) -> Void) {
         let session = URLSession.shared

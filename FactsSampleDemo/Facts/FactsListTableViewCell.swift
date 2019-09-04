@@ -12,7 +12,6 @@ class FactsListTableViewCell: UITableViewCell {
     var thumbImageView : UIImageView?
     var titleLabel1 : UILabel?
     var descriptionLabel : UILabel?
-    //var sdImageManager  = SDWebImageManager(cache: SDWebImageManager.defaultImageCache!, loader: SDWebImageManager.defaultImageLoader!)
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,7 +21,8 @@ class FactsListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    func addSubviews()  {
+    /// Creates and adds content views to display Image , Title & Description
+   private func addSubviews()  {
         if thumbImageView == nil {
             thumbImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 45, height: 45))
             self.contentView.addSubview(thumbImageView!)
@@ -65,6 +65,8 @@ class FactsListTableViewCell: UITableViewCell {
 
 
     }
+    /// Updates the Cell UI with Provided Data
+    /// - Parameter fact: instance of Facts , which contents will be displayed
     func updateWithFact(_ fact : Facts)  {
         addSubviews()
         titleLabel1?.text = fact.title
@@ -96,10 +98,6 @@ class FactsListTableViewCell: UITableViewCell {
             })*/
 
         }
-
-    }
-    override func layoutSubviews() {
-        super.layoutSubviews()
 
     }
     override func prepareForReuse() {

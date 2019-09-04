@@ -20,7 +20,6 @@
 		1AC8B746231F8BFF00C33AB3 /* FactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B741231F8BFF00C33AB3 /* FactsManager.swift */; };
 		1AC8B747231F8BFF00C33AB3 /* FactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B741231F8BFF00C33AB3 /* FactsManager.swift */; };
 		1AC8B749231F8E0000C33AB3 /* FactsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B748231F8E0000C33AB3 /* FactsListTableViewCell.swift */; };
-		1AC8B74B231F99F800C33AB3 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B74A231F99F800C33AB3 /* ViewExtensions.swift */; };
 		888B7842EE571EF169E933B4 /* Pods_FactsSampleDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E490211B3910C4CF3644338 /* Pods_FactsSampleDemoUITests.framework */; };
 		A29BB3FBADFA3DD38E3B9676 /* Pods_FactsSampleDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F67437FBA3952ED1F6156186 /* Pods_FactsSampleDemo.framework */; };
 /* End PBXBuildFile section */
@@ -50,7 +49,6 @@
 		1AC8B740231F8BFF00C33AB3 /* FactsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsInfo.swift; sourceTree = "<group>"; };
 		1AC8B741231F8BFF00C33AB3 /* FactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsManager.swift; sourceTree = "<group>"; };
 		1AC8B748231F8E0000C33AB3 /* FactsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListTableViewCell.swift; sourceTree = "<group>"; };
-		1AC8B74A231F99F800C33AB3 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		6000D89191DBFCB55E968AC9 /* Pods-FactsSampleDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactsSampleDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FactsSampleDemoUITests/Pods-FactsSampleDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		667D19EA0ED567BA61C1236D /* Pods-FactsSampleDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FactsSampleDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FactsSampleDemo/Pods-FactsSampleDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6E490211B3910C4CF3644338 /* Pods_FactsSampleDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FactsSampleDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +108,6 @@
 				1AC8B724231F893800C33AB3 /* Assets.xcassets */,
 				1AC8B726231F893800C33AB3 /* LaunchScreen.storyboard */,
 				1AC8B729231F893800C33AB3 /* Info.plist */,
-				1AC8B74A231F99F800C33AB3 /* ViewExtensions.swift */,
 			);
 			path = FactsSampleDemo;
 			sourceTree = "<group>";
@@ -372,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AC8B746231F8BFF00C33AB3 /* FactsManager.swift in Sources */,
-				1AC8B74B231F99F800C33AB3 /* ViewExtensions.swift in Sources */,
 				1AC8B720231F893700C33AB3 /* ViewController.swift in Sources */,
 				1AC8B71E231F893700C33AB3 /* AppDelegate.swift in Sources */,
 				1AC8B742231F8BFF00C33AB3 /* Service.swift in Sources */,

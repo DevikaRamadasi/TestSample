@@ -9,8 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    /// Provides FactsInfo object containing title and rows.
     var factsInfo :FactsInfo?
     
+    /// represents Table Contents
     var tableView:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +22,14 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
     }
-    //Add TableView
     
     
-    func refreshFacts()  {
+    /// Fetches and updates facts
+    private func refreshFacts()  {
         FactsManager.getFacts { (updated:FactsInfo?, error: Error?) in
             if updated != nil
             {
+                
                 self.factsInfo = updated
                 self.refreshUI()
             }
@@ -39,13 +43,15 @@ class ViewController: UIViewController {
         }
     }
     
-    func refreshUI()  {
+    /// Reload table and UI
+  private  func refreshUI()  {
         self.title = factsInfo?.title
         tableView?.reloadData()
     }
 }
 extension ViewController:UITableViewDelegate,UITableViewDataSource
 {
+    /// Create & tableview to controller view
     func addTableView()  {
         tableView = UITableView(frame: self.view.bounds, style: UITableView.Style.plain)
         tableView?.delegate = self

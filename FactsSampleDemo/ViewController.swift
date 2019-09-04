@@ -51,7 +51,17 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource
         tableView?.delegate = self
         tableView?.dataSource = self
         tableView?.rowHeight = UITableView.automaticDimension
+        tableView?.register(FactsListTableViewCell.self, forCellReuseIdentifier: "FactsListTableViewCell")
+        let views = ["tableView":tableView]
         self.view.addSubview(tableView!)
+        tableView?.translatesAutoresizingMaskIntoConstraints = false
+
+        let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[tableView]-|", options: [.alignAllCenterY], metrics: nil, views: views as [String : Any])
+        let Constraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[tableView]-|", options: [.alignAllCenterX], metrics: nil, views: views as [String : Any])
+        self.view.addConstraints(verticalConstraints)
+        self.view.addConstraints(Constraints)
+
+       // self.view.addConstraint([verticalConstraints,Constraints])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,18 +69,19 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "FactsListTableViewCell") as? FactsListTableViewCell
         if cell == nil
         {
-            cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "cell")
+            cell = FactsListTableViewCell()
             cell?.detailTextLabel?.numberOfLines = 0
             //    cell?.detailTextLabel?.cont
             
         }
         if let fact = factsInfo?.rows[indexPath.row]
         {
-            cell?.textLabel?.text = fact.title
-            cell?.detailTextLabel?.text = fact.descreption
+            cell?.updateWithFact(fact)
+            //cell?.textLabel?.text = fact.title
+           // cell?.detailTextLabel?.text = fact.descreption
         }
         return cell!
     }

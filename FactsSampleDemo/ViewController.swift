@@ -19,13 +19,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         addTableView()
         refreshFacts()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: UIBarButtonItem.Style.plain, target: self, action: #selector(ViewController.refreshFacts))
         // Do any additional setup after loading the view, typically from a nib.
         
     }
     
     
     /// Fetches and updates facts
-    private func refreshFacts()  {
+    @objc func refreshFacts()  {
         FactsManager.getFacts { (updated:FactsInfo?, error: Error?) in
             if updated != nil
             {

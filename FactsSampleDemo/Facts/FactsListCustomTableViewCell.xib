@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FactsListCustomTableViewCell" rowHeight="62" id="KGk-i7-Jjw" customClass="FactsListCustomTableViewCell" customModule="FactsSampleDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="62"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="61.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="project-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="m3r-nJ-L3e">
+                        <rect key="frame" x="5" y="5" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Y3a-IJ-5IX"/>
+                            <constraint firstAttribute="width" constant="50" id="i3l-jO-Zwx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osx-qL-K4n">
+                        <rect key="frame" x="63" y="5" width="248" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PF2-hv-wyv">
+                        <rect key="frame" x="63" y="30.5" width="248" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="PF2-hv-wyv" secondAttribute="bottom" constant="5" id="CfB-M2-Wmr"/>
+                    <constraint firstAttribute="trailing" secondItem="Osx-qL-K4n" secondAttribute="trailing" constant="8" id="Ho6-a5-uGY"/>
+                    <constraint firstItem="PF2-hv-wyv" firstAttribute="top" secondItem="Osx-qL-K4n" secondAttribute="bottom" constant="5" id="TL6-Fz-r7J"/>
+                    <constraint firstItem="Osx-qL-K4n" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="YpU-b7-YqH"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m3r-nJ-L3e" secondAttribute="bottom" constant="5" id="aU7-Yo-jGc"/>
+                    <constraint firstItem="m3r-nJ-L3e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="bsc-Gc-2au"/>
+                    <constraint firstItem="PF2-hv-wyv" firstAttribute="leading" secondItem="m3r-nJ-L3e" secondAttribute="trailing" constant="8" id="gIL-68-CnU"/>
+                    <constraint firstItem="PF2-hv-wyv" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="ojq-Nh-omj"/>
+                    <constraint firstItem="m3r-nJ-L3e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="p4K-uJ-9Rj"/>
+                    <constraint firstItem="Osx-qL-K4n" firstAttribute="leading" secondItem="m3r-nJ-L3e" secondAttribute="trailing" constant="8" id="w0e-iW-WPo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLable" destination="PF2-hv-wyv" id="OlN-5Q-gvW"/>
+                <outlet property="thumbImageView" destination="m3r-nJ-L3e" id="mmJ-Fn-0B6"/>
+                <outlet property="titleLabel1" destination="Osx-qL-K4n" id="C80-xA-KXC"/>
+            </connections>
+            <point key="canvasLocation" x="136.80000000000001" y="140.32983508245877"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="project-placeholder" width="130" height="104"/>
+    </resources>
+</document>

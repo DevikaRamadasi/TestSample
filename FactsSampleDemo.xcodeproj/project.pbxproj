@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AAC468B232015BA00C25B44 /* FactsListCustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AAC4689232015BA00C25B44 /* FactsListCustomTableViewCell.xib */; };
+		1AAC468C232015BA00C25B44 /* FactsListCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AAC468A232015BA00C25B44 /* FactsListCustomTableViewCell.swift */; };
 		1AC8B71E231F893700C33AB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B71D231F893700C33AB3 /* AppDelegate.swift */; };
 		1AC8B720231F893700C33AB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC8B71F231F893700C33AB3 /* ViewController.swift */; };
 		1AC8B723231F893700C33AB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC8B721231F893700C33AB3 /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AAC4689232015BA00C25B44 /* FactsListCustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FactsListCustomTableViewCell.xib; sourceTree = "<group>"; };
+		1AAC468A232015BA00C25B44 /* FactsListCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsListCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1AC8B71A231F893700C33AB3 /* FactsSampleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FactsSampleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AC8B71D231F893700C33AB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AC8B71F231F893700C33AB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,8 @@
 		1AC8B73F231F8BFF00C33AB3 /* Facts */ = {
 			isa = PBXGroup;
 			children = (
+				1AAC468A232015BA00C25B44 /* FactsListCustomTableViewCell.swift */,
+				1AAC4689232015BA00C25B44 /* FactsListCustomTableViewCell.xib */,
 				1AC8B740231F8BFF00C33AB3 /* FactsInfo.swift */,
 				1AC8B741231F8BFF00C33AB3 /* FactsManager.swift */,
 				1AC8B748231F8E0000C33AB3 /* FactsListTableViewCell.swift */,
@@ -246,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AAC468B232015BA00C25B44 /* FactsListCustomTableViewCell.xib in Resources */,
 				1AC8B728231F893800C33AB3 /* LaunchScreen.storyboard in Resources */,
 				1AC8B725231F893800C33AB3 /* Assets.xcassets in Resources */,
 				1AC8B723231F893700C33AB3 /* Main.storyboard in Resources */,
@@ -373,6 +380,7 @@
 				1AC8B71E231F893700C33AB3 /* AppDelegate.swift in Sources */,
 				1AC8B742231F8BFF00C33AB3 /* Service.swift in Sources */,
 				1AC8B744231F8BFF00C33AB3 /* FactsInfo.swift in Sources */,
+				1AAC468C232015BA00C25B44 /* FactsListCustomTableViewCell.swift in Sources */,
 				1AC8B749231F8E0000C33AB3 /* FactsListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

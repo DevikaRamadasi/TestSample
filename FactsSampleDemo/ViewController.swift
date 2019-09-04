@@ -13,26 +13,43 @@ class ViewController: UIViewController {
     /// Provides FactsInfo object containing title and rows.
     var factsInfo :FactsInfo?
     
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
     /// represents Table Contents
     var tableView:UITableView?
+    var showXibCell = false
     override func viewDidLoad() {
         super.viewDidLoad()
         addTableView()
         refreshFacts()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: UIBarButtonItem.Style.plain, target: self, action: #selector(ViewController.refreshFacts))
+        let leftTitle = showXibCell ? "Default" : "XibCell"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: leftTitle, style: UIBarButtonItem.Style.plain, target: self, action: #selector(ViewController.toggleCellUI))
+        
         // Do any additional setup after loading the view, typically from a nib.
         
     }
-    
+    @objc   func toggleCellUI()  {
+        showXibCell = !showXibCell
+        let leftTitle = showXibCell ? "Default" : "XibCell"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: leftTitle, style: UIBarButtonItem.Style.plain, target: self, action: #selector(ViewController.toggleCellUI))
+        tableView?.reloadData()
+        
+    }
     
     /// Fetches and updates facts
     @objc func refreshFacts()  {
+        self.view.bringSubviewToFront(self.activityView)
+        activityView?.startAnimating()
         FactsManager.getFacts { (updated:FactsInfo?, error: Error?) in
+            self.activityView?.stopAnimating()
+            
             if updated != nil
             {
                 
                 self.factsInfo = updated
                 self.refreshUI()
+                self.tableView?.isHidden = updated!.rows.count > 0 ? false : true
+                
             }
             else if error != nil
             {
@@ -45,7 +62,7 @@ class ViewController: UIViewController {
     }
     
     /// Reload table and UI
-  private  func refreshUI()  {
+    private  func refreshUI()  {
         self.title = factsInfo?.title
         tableView?.reloadData()
     }
@@ -59,16 +76,17 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource
         tableView?.dataSource = self
         tableView?.rowHeight = UITableView.automaticDimension
         tableView?.register(FactsListTableViewCell.self, forCellReuseIdentifier: "FactsListTableViewCell")
+        tableView?.register(UINib(nibName: "FactsListCustomTableViewCell", bundle: nil), forCellReuseIdentifier: "FactsListCustomTableViewCell")
         let views = ["tableView":tableView]
         self.view.addSubview(tableView!)
         tableView?.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let verticalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-[tableView]-|", options: [.alignAllCenterY], metrics: nil, views: views as [String : Any])
         let Constraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-[tableView]-|", options: [.alignAllCenterX], metrics: nil, views: views as [String : Any])
         self.view.addConstraints(verticalConstraints)
         self.view.addConstraints(Constraints)
-
-       // self.view.addConstraint([verticalConstraints,Constraints])
+        tableView?.isHidden = true
+        // self.view.addConstraint([verticalConstraints,Constraints])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,7 +94,8 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "FactsListTableViewCell") as? FactsListTableViewCell
+        
+        var cell = showXibCell ? tableView.dequeueReusableCell(withIdentifier: "FactsListCustomTableViewCell") as? FactsListCustomTableViewCell: tableView.dequeueReusableCell(withIdentifier: "FactsListTableViewCell") as? FactsListTableViewCell
         if cell == nil
         {
             cell = FactsListTableViewCell()
@@ -86,11 +105,19 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource
         }
         if let fact = factsInfo?.rows[indexPath.row]
         {
-            cell?.updateWithFact(fact)
-            //cell?.textLabel?.text = fact.title
-           // cell?.detailTextLabel?.text = fact.descreption
+            if showXibCell
+            {
+                (cell as? FactsListCustomTableViewCell)?.updateWithFact(fact)
+            }
+            else
+            {
+                (cell as? FactsListTableViewCell)?.updateWithFact(fact)
+            }
         }
         return cell!
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
     
